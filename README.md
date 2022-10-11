@@ -144,78 +144,179 @@ add(100,29)
 
 ```
 
-## 4.函数
+## 4.函数进阶
 
 ```python
-集合：
- list  tuple ---》set()
- 无序不重复的序列，集合
- 无序 ---》 跟下标相关
+作用域：LEGB
 
- s ={1,2,3,4,5}  ---->s[1]
+L: local 本地  局部变量
 
- for i in s:
-    print(i)
+E: encloseing  嵌套
 
-内置函数：
-添加： add update
-删除: remove  discard  pop  clear
+G: Global  全局
 
-运算相关函数：
--  difference()
-|  union()
-&  intersection()
-^  symmetric_difference()
-
-可变和不可变：
-可变: 地址不变里面内容改变   list  dict  set
-不可变: 只要内容改变，必须改变地址   int  str  float  tuple frozenset
+B: built-in 内置的
 
 
-类型转换:
-str ---> list  set ...  相互的转换
+嵌套函数：
 
-list ---> set tuple dict  相互的转换
-
-
-
-函数:
-
-增加代码的复用性，减少了代码冗余
-
-def 函数名([参数,...]):
-    函数体（重复性代码）
+闭包：
+1. 内层函数
+2. 内层函数引用外层函数的变量
+3. 返出内层函数
 
 
-没有参数:
-
-def add():
-    result = 1+3
-    print(result)
-
-调用:
-add()   ---> 4
+装饰器:
+1. 内层函数
+2. 内层函数引用外层函数的变量
+3. 返出内层函数
+4. 函数作为外层函数参数
 
 
-有参数:
+使用装饰器:
+@装饰器名字
+def 函数名():
+    pass
 
-def add(a,b):
-    result = a+b
-    print(result)
-
-调用:
-add(1,3)
-add(5,6)
-add(100,29)
-
+# 总结函数：
+普通函数:
+   def 函数名([参数,...]):
+        函数体
 
 
-总结:
+   1. 如何定义函数
+   2. 调用函数
 
-1.参数的种类：
-2.返回值return
-3.函数间相互调用
-4.局部和全局变量
+
+   参数：
+   1. 无参数：
+    def func():
+        pass
+
+    func()
+
+   2. 有参数:
+     一般参数:
+
+     def func(a,b):
+        pass
+
+     func(1,2)
+
+     可变参数:
+
+     def func(*args,**kwargs):  args单个元素   kwargs 关键字参数
+        pass
+
+     func()
+
+     func(1)
+
+     func(a=10)
+
+     默认值:
+
+     def func(a=10,b=10):
+        pass
+
+
+     func()
+
+     func(100)
+
+     关键字参数:
+
+     func(b=99)
+
+   返回值: return
+
+   没有返回值
+
+   def func():
+        print('-----')
+   x= func()   ---->x=None
+
+
+   有返回值:
+   def func():
+        return 'a'
+
+   x =func()  -----> x ='a'
+
+   def func():
+        return 'a','b'
+
+   x =func()  -----> x =('a','b')
+
+嵌套函数  ---》 闭包  ---》 装饰器
+
+def func():
+
+    def wrapper():
+        ....
+
+    return wrapper
+
+变量的作用域： LEGB
+global    nonlocal
+globals()  locals()
+LEGB
+
+L: local 本地  局部变量
+E: encloseing  嵌套
+G: Global  全局
+B: built-in 内置的
+
+
+装饰器:
+
+单层装饰器
+
+def decorate(func):
+    def wrapper(*args,**kwargs):
+        ....
+
+
+    return wrapper
+
+@decorate
+def house():
+    pass
+
+@decorate
+def f1(a,b):
+    pass
+
+多层装饰器:
+
+@zhuang2
+@zhuang1
+def f1(a,b):
+    pass
+
+
+装饰器带参数:
+def outter(a):
+    def decorate(func):
+        def wrapper(*args,**kwargs):
+            ....
+
+
+        return wrapper
+   return decorate
+
+
+@zhuang(10)
+def house():
+    pass
+
+@zhuang(100):
+def street():
+    pass
+
+匿名函数: lambda 参数：返回值
+
+递归函数： 自己调用自己。
+
 
 ```
-
