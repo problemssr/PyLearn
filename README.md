@@ -453,8 +453,42 @@ C:\Users\running\Desktop\python基础\day13(6-14)\代码\day13_文件\images\gir
     os.remove()  删除文件
     os.chdir()  切换目录
 
+```
+
+# 6.异常
+
+```python
+异常：
+语法错误
+异常
+
+系统抛出异常
+
+list1=[]
+list1.pop()
+
+处理异常:
+
+try:
+   可能发生异常代码
+except:
+   有异常才会进入代码
+[except 异常类型 as err:
+     ...
+]
+[
+ else:
+   没有异常才会进入代码
+]
+[
+finally:
+   无论有没有异常都会执行的代码
+]
 
 
+抛出异常： 手动异常 raise
+ 格式:
+     raise 异常类型('提示信息')
 
 ```
 
