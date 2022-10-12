@@ -545,5 +545,63 @@ list----> iter(list)  ---> 迭代器 next()
 可迭代的：isinstance(x,Iterable)  ---> True
 可迭代的可以变成迭代器，但是需要iter()进行转换
 
+列表推导式：
+[表达式 for 变量 in 列表]
 
+[x+2 for x in list1]---->新的列表
+
+1. [表达式 for 变量 in 列表 if 条件]
+    [x+2 for x in list1 if x%2==0]
+
+2. [结果A if 条件 else 结果B for x in list1]
+
+  [x+2 if x%2==0 else x+1 for x in list1 ]
+
+集合推导式： {表达式 for 变量 in 列表} ---> 类似列表推导式，但是没有重复元素
+字典推导式：{key,value  for k,v in 字典.items()}
+
+
+生成器:generator
+1. 使用类似的列表推导式  g = (表达式 for 变量 in 列表)
+    此时的g就是生成器
+2. 函数+yield
+
+   def func():
+       ....
+       yield
+       ....
+
+   g = func()
+
+得到里面的元素:
+
+    系统函数： next(g)
+
+    生成器里面函数:  __next__() , [send(None),send(e)]
+
+
+可迭代的与迭代器：
+1.生成器  2. 字符串,列表,集合,...
+
+Iterable
+
+isinstance(x,Iterable)  --->True,False
+
+
+生成器就是一个迭代器  ----》 next(g) --->下一个元素
+next(list) ---> iter(list)  ---->next(iter(list))  ----> 下一个元素
+
+
+面向对象
+类
+
+class 类名:
+    特征： 属性
+    动作:  方法
+
+
+实例,对象
+
+huawei = Phone()
+huawei.price = 5999
 ```
