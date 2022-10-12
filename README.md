@@ -42,8 +42,11 @@ isdigit()
 ''' '''
 
 符号:
+
 +
+
 *
+
 in not in is not is
 []
 
@@ -137,10 +140,7 @@ add(100,29)
 
 总结:
 
-1.参数的种类： 
-2.返回值return
-3.函数间相互调用 
-4.局部和全局变量
+1.参数的种类： 2.返回值return 3.函数间相互调用 4.局部和全局变量
 
 ```
 
@@ -149,170 +149,222 @@ add(100,29)
 ```python
 作用域：LEGB
 
-L: local 本地  局部变量
+L: local
+本地
+局部变量
 
-E: encloseing  嵌套
+E: encloseing
+嵌套
 
-G: Global  全局
+G: Global
+全局
 
-B: built-in 内置的
-
+B: built - in 内置的
 
 嵌套函数：
 
 闭包：
-1. 内层函数
-2. 内层函数引用外层函数的变量
-3. 返出内层函数
-
+1.
+内层函数
+2.
+内层函数引用外层函数的变量
+3.
+返出内层函数
 
 装饰器:
-1. 内层函数
-2. 内层函数引用外层函数的变量
-3. 返出内层函数
-4. 函数作为外层函数参数
-
+1.
+内层函数
+2.
+内层函数引用外层函数的变量
+3.
+返出内层函数
+4.
+函数作为外层函数参数
 
 使用装饰器:
+
+
 @装饰器名字
 def 函数名():
     pass
 
+
 # 总结函数：
 普通函数:
-   def 函数名([参数,...]):
-        函数体
 
 
-   1. 如何定义函数
-   2. 调用函数
+def 函数名([参数, ...]):
+    函数体
 
 
-   参数：
-   1. 无参数：
-    def func():
-        pass
+1.
+如何定义函数
+2.
+调用函数
 
-    func()
-
-   2. 有参数:
-     一般参数:
-
-     def func(a,b):
-        pass
-
-     func(1,2)
-
-     可变参数:
-
-     def func(*args,**kwargs):  args单个元素   kwargs 关键字参数
-        pass
-
-     func()
-
-     func(1)
-
-     func(a=10)
-
-     默认值:
-
-     def func(a=10,b=10):
-        pass
-
-
-     func()
-
-     func(100)
-
-     关键字参数:
-
-     func(b=99)
-
-   返回值: return
-
-   没有返回值
-
-   def func():
-        print('-----')
-   x= func()   ---->x=None
-
-
-   有返回值:
-   def func():
-        return 'a'
-
-   x =func()  -----> x ='a'
-
-   def func():
-        return 'a','b'
-
-   x =func()  -----> x =('a','b')
-
-嵌套函数  ---》 闭包  ---》 装饰器
+参数：
+1.
+无参数：
 
 def func():
+    pass
 
+
+func()
+
+2.
+有参数:
+一般参数:
+
+
+def func(a, b):
+    pass
+
+
+func(1, 2)
+
+可变参数:
+
+
+def func(*args, **kwargs):  args单个元素
+
+
+kwargs
+关键字参数
+pass
+
+func()
+
+func(1)
+
+func(a=10)
+
+默认值:
+
+
+def func(a=10, b=10):
+    pass
+
+
+func()
+
+func(100)
+
+关键字参数:
+
+func(b=99)
+
+返回值:
+return
+
+没有返回值
+
+
+def func():
+    print('-----')
+
+
+x = func() - --->x = None
+
+有返回值:
+
+
+def func():
+    return 'a'
+
+
+x = func() - ----> x = 'a'
+
+
+def func():
+    return 'a', 'b'
+
+
+x = func() - ----> x = ('a', 'b')
+
+嵌套函数 - --》 闭包 - --》 装饰器
+
+
+def func():
     def wrapper():
         ....
 
     return wrapper
 
+
 变量的作用域： LEGB
-global    nonlocal
-globals()  locals()
+global
+nonlocal
+globals()
+locals()
 LEGB
 
-L: local 本地  局部变量
-E: encloseing  嵌套
-G: Global  全局
-B: built-in 内置的
-
+L: local
+本地
+局部变量
+E: encloseing
+嵌套
+G: Global
+全局
+B: built - in 内置的
 
 装饰器:
 
 单层装饰器
 
+
 def decorate(func):
-    def wrapper(*args,**kwargs):
+    def wrapper(*args, **kwargs):
         ....
 
-
     return wrapper
+
 
 @decorate
 def house():
     pass
 
+
 @decorate
-def f1(a,b):
+def f1(a, b):
     pass
+
 
 多层装饰器:
 
+
 @zhuang2
 @zhuang1
-def f1(a,b):
+def f1(a, b):
     pass
 
 
 装饰器带参数:
+
+
 def outter(a):
     def decorate(func):
-        def wrapper(*args,**kwargs):
+        def wrapper(*args, **kwargs):
             ....
 
-
         return wrapper
-   return decorate
+
+
+return decorate
 
 
 @zhuang(10)
 def house():
     pass
 
-@zhuang(100):
+
+@zhuang(100)
+
+:
+
 def street():
     pass
+
 
 匿名函数: lambda 参数：返回值
 
@@ -320,3 +372,89 @@ def street():
 
 
 ```
+
+# 5.文件
+
+```python
+文件操作：
+
+open(path,mode)
+
+mode ----> r
+s.read()
+s.readline()
+s.readlines()
+s.readable()
+
+with open('a1.txt') as fstream:
+    pass
+
+FileNotFoundError: [Errno 2] No such file or directory: 'a1.txt'
+
+mode ---->w,a
+
+with open('a1.txt', 'w') as wstream:   ----> 如果指定的文件不存在，则自动创建。
+    wstream.write('hello')
+
+write()
+writelines()
+writeable()
+
+
+os模块：
+os.path
+
+absolute 绝对的  c:\p1\girl.jpg
+
+C:\Users\running\Desktop\python基础\day13(6-14)\代码\day13_文件\images\girl.jpg
+
+
+文件：
+文件操作：
+  open()
+  path,filename:
+    path:
+      绝对路径：C:\Users\running\Desktop\python基础\day13(6-14)\代码\day13_文件\images\girl.jpg
+      相对路径：相对当前文件的路径。返回上层目录： ../
+  mode:
+  读:  rb  r
+  写:  wb  w
+
+  stream  =  open(file,mode)
+  stream.read()
+  stream.write()
+  stream.close()
+
+  with open(file,mode) as stream:
+        操作代码
+
+
+  os模块：
+
+  os.path:常用函数
+    os.path: 常用函数
+     dirname() 获取指定文件的目录
+     join()    拼接获取新的路径
+     split()   分割(文件目录，文件名)
+     splittext()  分割(文件目录\文件名,文件的扩展名)
+     getsize()   获取文件大小
+
+     isabs()   判断是否是绝对路径
+     isfile()  判断是否是文件
+     isdir()   判断是否是文件夹
+
+
+  os常用函数
+    os模块下方法:
+    os.getcwd()  获取当前目录
+    os.listdir()  浏览文件夹
+    os.mkdir()  创建文件夹
+    os.rmdir()  删除空的文件夹
+    os.remove()  删除文件
+    os.chdir()  切换目录
+
+
+
+
+```
+
