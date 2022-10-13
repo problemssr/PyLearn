@@ -748,3 +748,53 @@ class Person:
         pass
 
 ```
+
+# 11.单例模式，模块，包，系统路径
+```python
+单例：__new__
+class Singleton：
+    __instance=None
+
+    def __new__(cls):
+        判断instance是否是None
+        if cls.__instance is None:
+            return 。。。
+        return cls.__instance
+扩展： 元类   。。
+
+模块：
+自定义：
+ xxx.py
+
+ import xxx
+
+ from xxx import xx
+
+ from xxx  import *   + __all__ =[]
+
+ __name__ ---> 自己:__main__  别的使用: 模块名
+
+
+ 包：
+   user
+     |-- __init__.py   只要包的导入，都会默认执行__init__.py文件  __all__ = [  ] + from 包名 import *
+     |-- xxx.py
+     |-- xx.py
+          |-- add
+    article
+        |-- aa.py
+
+     bb.py
+
+     from user.xx import add
+     add()
+
+  循环导入：避免
+  1. 重构代码
+  2. 将导入语句放到函数中
+  3. 把导入语句放到模块最后
+
+系统：
+
+   sys:  sys.path   sys.version  sys.argv
+```
