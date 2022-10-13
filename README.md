@@ -605,3 +605,34 @@ class 类名:
 huawei = Phone()
 huawei.price = 5999
 ```
+
+# 9.面向对象类的方法
+
+```python
+类中的方法:
+普通方法
+def func(self):   ----> self对象
+    pass
+类方法
+@classmethod
+def func(cls):  ---》cls  类
+    pass
+静态方法
+@staticmethod
+def func():
+    pass
+魔术方法
+__init__ , __str__
+
+__new__   __call__   __del__
+
+n=5
+n1 = n
+
+p = Person()
+p1 = p
+
+del p1
+del p
+ref = 0  ---->__del__
+```
