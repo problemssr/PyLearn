@@ -636,3 +636,115 @@ del p1
 del p
 ref = 0  ---->__del__
 ```
+
+# 10.面向对象私有化，封装，继承，多态
+
+```python
+封装：
+私有化属性，定义公有的set和get方法
+ 私有化：
+    __age
+    def __show(self):
+        pass
+
+    ---> _类名_属性
+
+  私有化： 封装  将属性私有化，定义公有set和get方法
+  def setAge(self,age):
+      判断
+  def getAge(self):
+     return self.__age
+
+  s.setAge(20)
+  s.getAge()
+
+  class Student:
+      def __init__(self,age):
+            self.__age=age
+
+      @property
+      def age(self):
+        return ...
+
+      @age.setter
+      def age(self,age):
+        self.__age=age
+
+  s= Student()
+  s.age=10
+  print(s.age)
+
+
+ 继承：
+   has a
+   class Student:
+     def __init__(self,name,book):
+        pass
+
+   is a
+    父类   子类
+    class Person:
+        def run(self):
+            ....
+
+    class Student(Person):
+        ....
+
+        def study(self):
+            ....
+
+        def run(self):
+            super().run()
+            .....
+
+    s= Student()
+    s.study()
+    s.run()
+
+
+    1. __init__
+    2. 重写方法
+
+  多继承：（了解）
+    class A:
+        pass
+    class B:
+        pass
+    class C(A,B):
+        pass
+    现在执行环境python3
+
+    新式类: 广度优先
+
+    D.__mro__  --->查看搜索顺序
+    import inspect
+    print(inspect.getmro(D))
+
+继承：
+is a:
+  父类  子类
+  class Student(Person):
+    pass
+
+has a:
+  class Student:
+       def __init__(self,book,computer):
+           book 是自定义类型   ---  系统类型
+
+  s = Student()
+
+多继承：
+class C(A,B):
+    pass
+
+C.__mro__
+
+多态：
+
+class Person:
+
+   def feed_pet(self,pet):
+    isinstance(pet,Pet):
+        pass
+
+```
