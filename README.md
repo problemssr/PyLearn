@@ -798,3 +798,59 @@ class Singleton：
 
    sys:  sys.path   sys.version  sys.argv
 ```
+
+# 12.正则表达式
+
+```python
+正则表达式：
+re模块
+import re
+
+re.match(pattern,str)
+re.search(pattern,str)
+re.findall(pattern,str)
+re.sub(pattern,'新的内容',str)  替换
+re.split(pattern,str)  ---> []
+
+基础：
+. 任意字符
+[] 范围
+|  或者
+()  一组
+
+量词:
+ *  >=0
+ +  >=1
+ ?  0,1
+ {m}  = m
+ {m,} >=m
+ {m,n}  >=m  <=n
+
+ 预定义：
+ \s  space
+ \S  not space
+ \d  digit
+ \D  not digit
+ \w  word  [0-9a-zA-Z_]
+ \W  not word  [^0-9a-zA-Z_]
+ \b
+ \D
+
+分组：
+()   ---> group(1)
+
+number
+  (\w+)(\d*)   ---> group(1)  group(2)
+  引用：
+  (\w+)(\d*)   \1  \2  表示引用前面的内容
+
+name
+  (?P<name>\w+)   (?P=name)
+
+
+Python里数量词默认是贪婪的（在少数语言里也可能是默认非贪婪），总是尝试匹配尽可能多的字符；
+
+非贪婪则相反，总是尝试匹配尽可能少的字符。
+
+在"*","?","+","{m,n}"后面加上？，使贪婪变成非贪婪。
+```
